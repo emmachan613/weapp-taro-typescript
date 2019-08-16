@@ -1,10 +1,23 @@
+import { observable } from 'mobx'
 import Taro, { Component, Config } from '@tarojs/taro'
 import wrapUserAuth from '@/components/HOC/wrapUserAuth'
 import { Navigator, Text, View } from '@tarojs/components'
 import './index.scss'
 
+function identity<T>(arg: T[]): T[] {
+  console.log(arg, arg.length)
+  return arg
+}
+
+interface IState {
+  username: string
+  password: string
+}
+
 @wrapUserAuth
-class IndexPage extends Component {
+class IndexPage extends Component<{}, IState> {
+  readonly state: IState = { username: 'name', password: 'password' }
+
   /**
    * 指定config的类型声明为: Taro.Config
    *
@@ -24,7 +37,16 @@ class IndexPage extends Component {
     // 跳转登录页
     Taro.reLaunch({ url: '/pages/account/login/index' })
   }
-
+  componentDidMount() {
+    this.identity([1,2,3])
+    this.identity1([3,4])
+  }
+  
+  identity1<T>(arg: T[]): Array<T> {
+    console.log(arg, arg.length)
+    return arg
+  }
+  identity: <T>(arg: T[]) => T[] = identity
   render () {
     return (
       <View className='index__page'>

@@ -1,8 +1,8 @@
 {
 	"miniprogramRoot": "dist/",
-	"projectname": "teashop-seller",
+	"projectname": "teashop-seller-sample",
 	"description": "微信小程序 React+TypeScript 使用tora框架",
-	"appid": "wxd33f69e4f6042184",
+	"appid": "wx79fbae11e71decbc",
 	"setting": {
 		"urlCheck": false,
 		"es6": false,

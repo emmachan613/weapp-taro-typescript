@@ -15,6 +15,7 @@ const store = {
   dashboradStore: new DashboradStore(),
   orderStore: new OrderStore()
 }
+console.log("store", store.commonStore)
 
 class App extends Component {
   /**
@@ -40,6 +41,16 @@ class App extends Component {
       navigationBarTitleText: '首页',
       backgroundTextStyle: 'light',
       backgroundColor: '#ffffff'
+    },
+    tabBar: {
+      color: '#fff',
+      list: [{
+        pagePath: 'pages/order/index',
+        text: 'order'
+      }, {
+        pagePath: 'pages/order/index',
+        text: 'order'
+      }]
     },
     permission: { 'scope.userLocation': { desc: '用于连接蓝牙设备打印票据' }}
   }
